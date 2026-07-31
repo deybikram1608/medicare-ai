@@ -1,4 +1,4 @@
-package com.bikram.medicareai;
+package com.bikram.medicareai.repository;
 
 import com.bikram.medicareai.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
