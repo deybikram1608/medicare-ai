@@ -2,6 +2,7 @@ package com.bikram.medicareai.controller;
 
 import com.bikram.medicareai.entity.User;
 import com.bikram.medicareai.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public User registerUser(@RequestBody User user){
+    public User registerUser(@Valid @RequestBody User user){
         return userService.registerUser(user);
     }
 

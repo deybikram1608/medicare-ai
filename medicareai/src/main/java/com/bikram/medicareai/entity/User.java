@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -12,9 +15,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message= "Full name cannot be empty")
+    @Size(min= 3, max= 50, message = "Full name must be atleast 3 characters")
     private String fullName;
+
+    @NotBlank(message = "Email cannot be empty")
+    @Email(message = "Please enter a valid email")
     private String email;
+
+    @NotBlank(message = "Password cannot be empty")
+    @Size(min = 8, message = "Password must be atleast 8 characters")
     private String password;
+
+    @NotBlank(message = "Role cannot be empty")
     private String role;
 
     public User() {
